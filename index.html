@@ -3,257 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Persuasion in Conversational Agents: Research Agendas, Tools, and Frameworks — a workshop at ACM IVA 2026.">
+  <meta name="description" content="Persuasion in Conversational Agents: Research Agendas, Tools, and Frameworks — an IVA 2026 workshop.">
   <title>Persuasion in Conversational Agents | IVA 2026 Workshop</title>
-
-  <style>
-    :root {
-      --ink: #18212b;
-      --muted: #5d6874;
-      --paper: #ffffff;
-      --soft: #f3f6f8;
-      --accent: #7b2346;
-      --accent-dark: #55162f;
-      --line: #dfe5e9;
-      --max-width: 1080px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-
-    a { color: var(--accent); }
-    a:hover { color: var(--accent-dark); }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 2rem));
-      margin-inline: auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-weight: 750;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover,
-    .nav-links a[aria-current="page"] {
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 6rem 0 4.5rem;
-      text-align: center;
-      background:
-        radial-gradient(circle at top left, rgba(123, 35, 70, 0.10), transparent 34%),
-        linear-gradient(180deg, #ffffff 0%, #f7f3f5 100%);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow {
-      margin: 0 0 1rem;
-      color: var(--accent);
-      font-size: 0.92rem;
-      font-weight: 800;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 900px;
-      margin: 0 auto;
-      font-size: clamp(2.35rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
-    }
-
-    .subtitle {
-      max-width: 760px;
-      margin: 1.5rem auto 0;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-    }
-
-    .event-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem 1.25rem;
-      margin-top: 2rem;
-      font-weight: 650;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
-      margin-top: 2rem;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.8rem 1.05rem;
-      border: 1px solid var(--accent);
-      border-radius: 0.55rem;
-      text-decoration: none;
-      font-weight: 750;
-    }
-
-    .button-primary {
-      color: white;
-      background: var(--accent);
-    }
-
-    .button-primary:hover {
-      color: white;
-      background: var(--accent-dark);
-    }
-
-    main section { padding: 4.5rem 0; }
-    main section:nth-child(even) { background: var(--soft); }
-
-    h2 {
-      margin-top: 0;
-      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-    }
-
-    h3 { line-height: 1.3; }
-
-    .lead {
-      max-width: 850px;
-      font-size: 1.13rem;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .card {
-      padding: 1.5rem;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 0.9rem;
-      box-shadow: 0 12px 35px rgba(24, 33, 43, 0.06);
-    }
-
-    .questions {
-      margin: 1.25rem 0 0;
-      padding-left: 1.25rem;
-    }
-
-    .questions li + li { margin-top: 0.75rem; }
-
-    .keynote-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .portrait-placeholder,
-    .logo-placeholder {
-      display: grid;
-      place-items: center;
-      min-height: 220px;
-      padding: 1rem;
-      color: var(--muted);
-      background: var(--soft);
-      border: 1px dashed #aab4bd;
-      border-radius: 0.8rem;
-      text-align: center;
-    }
-
-    .logo-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .logo-placeholder {
-      min-height: 110px;
-      width: min(280px, 100%);
-    }
-
-    .notice {
-      padding: 1rem 1.2rem;
-      border-left: 4px solid var(--accent);
-      background: #fbf5f8;
-    }
-
-    .site-footer {
-      padding: 2.2rem 0;
-      color: #e7eaed;
-      background: #202832;
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .site-footer a { color: white; }
-
-    @media (max-width: 760px) {
-      .nav { align-items: flex-start; padding: 0.9rem 0; }
-      .nav-links { gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end; }
-      .two-column,
-      .keynote-grid { grid-template-columns: 1fr; }
-      .hero { padding-top: 4.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
   <header class="site-header">
     <div class="container nav">
@@ -261,9 +14,9 @@
       <nav aria-label="Main navigation">
         <ul class="nav-links">
           <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="participate.html">Participate</a></li>
           <li><a href="program.html">Program</a></li>
-          <li><a href="organizers.html">Organisers</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="organizers.html">Organizers</a></li>
         </ul>
       </nav>
     </div>
@@ -275,16 +28,11 @@
         <p class="eyebrow">Workshop at the 26th ACM International Conference on Intelligent Virtual Agents</p>
         <h1>Persuasion in Conversational Agents</h1>
         <p class="subtitle">Research Agendas, Tools, and Frameworks</p>
-
-        <div class="event-meta" aria-label="Workshop details">
-          <span>IVA 2026</span>
-          <span>Puebla, Mexico</span>
-          <span>7 September 2026</span>
-          <span>Half-day workshop</span>
+        <div class="event-meta">
+          <span>IVA 2026</span><span>Puebla, Mexico</span><span>7 September 2026</span><span>Half-day workshop</span>
         </div>
-
         <div class="hero-actions">
-          <a class="button button-primary" href="participate.html">Register your interest</a>
+          <a class="button button-primary" href="join.html">Join the workshop</a>
           <a class="button" href="#about">About the workshop</a>
         </div>
       </div>
@@ -294,47 +42,26 @@
       <div class="container two-column">
         <div>
           <h2>About the workshop</h2>
-          <p class="lead">
-            Conversational agents are increasingly agreeable, empathetic, and encouraging.
-            These qualities can make them easier to interact and cooperate with, but they may
-            also make agents persuasive or even manipulative.
-          </p>
-          <p>
-            This workshop will bring together researchers from socially interactive agent
-            design and evaluation, machine learning, AI safety, cognitive psychology,
-            neuroscience, sociology, and business and marketing. Through an invited keynote,
-            pre-workshop reflections from participants, and roundtable discussions, participants will
-            identify key challenges, research directions, and methodological building blocks
-            for studying persuasion that emerges through social interaction with conversational
-            agents.
-          </p>
-          <p>
-            The workshop will connect ideas shared by registered participants before the event
-            with in-person discussion at IVA 2026. Its central goal is to co-construct a shared
-            research agenda for studying persuasive and potentially harmful patterns in
-            human–agent interaction.
-          </p>
+          <p class="lead">Conversational agents are increasingly agreeable, empathetic, and encouraging. These qualities can make them easier to interact and cooperate with, but they may also make agents persuasive or even manipulative.</p>
+          <p>This workshop will bring together researchers from socially interactive agent design and evaluation, machine learning, AI safety, cognitive psychology, neuroscience, sociology, and business and marketing. Through an invited keynote, pre-workshop reflections, and roundtable discussions, participants will identify key challenges, research directions, and methodological building blocks for studying persuasion that emerges through social interaction with conversational agents.</p>
+          <p>The workshop will connect ideas shared by registered participants before the event with in-person discussion at IVA 2026. Its central goal is to co-construct a shared research agenda for studying persuasive and potentially harmful patterns in human–agent interaction.</p>
         </div>
-
         <aside class="card">
           <h3>Workshop goals</h3>
           <ul>
             <li>Define priority research questions for persuasion in conversational agents.</li>
             <li>Discuss concepts, measures, tools, and evaluation frameworks.</li>
-            <li>Bridge perspectives across technical, behavioural, and social sciences.</li>
+            <li>Bridge technical, behavioural, and social-science perspectives.</li>
             <li>Support future collaborations and a possible post-workshop publication.</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section id="questions">
+    <section>
       <div class="container">
         <h2>Questions guiding the workshop</h2>
-        <p class="lead">
-          Discussions will be shaped by participant submissions and will build on questions
-          such as:
-        </p>
+        <p class="lead">Discussions will be shaped by participants’ advance reflections and will build on questions such as:</p>
         <ul class="questions">
           <li>How can persuasion be studied beyond short-term opinion shifts, including effects on real-world behaviour?</li>
           <li>How should manipulation, deception, and conversational “dark patterns” be defined and operationalised?</li>
@@ -345,116 +72,56 @@
       </div>
     </section>
 
-    <section id="keynote">
+    <section>
       <div class="container">
         <h2>Invited keynote</h2>
         <div class="keynote-grid">
-          <figure style="margin: 0;">
-            <img
-              src="assets/pat-pataranutaporn.jpg"
-              alt="Portrait of Dr Pat Pataranutaporn"
-              style="display:block;width:100%;max-width:320px;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:.9rem;"
-            >
-            <figcaption style="margin-top:.55rem;color:var(--muted);font-size:.84rem;">
-              Photo: Katherine Taylor / TEDx Boston
-            </figcaption>
+          <figure style="margin:0">
+            <img class="speaker-photo" src="assets/images/pat-pataranutaporn.jpg" alt="Portrait of Dr Pat Pataranutaporn">
+            <figcaption class="photo-credit">Photo: Katherine Taylor / TEDx Boston</figcaption>
           </figure>
-
           <div>
             <p class="eyebrow">Keynote speaker</p>
             <h3>Dr Pat Pataranutaporn</h3>
             <p><strong>Assistant Professor of Media Arts and Sciences, MIT Media Lab</strong></p>
-            <p>
-              Dr Pat Pataranutaporn is the founding director of the Cyborg Psychology research
-              group and co-director of the MIT Media Lab’s Advancing Humans with AI research
-              programme. His work brings together artificial intelligence, human–computer
-              interaction, and psychology to investigate how human–AI systems can support—or
-              diminish—learning, decision-making, critical thinking, creativity, and wellbeing.
-              His research includes empirical work on emotional dependence on AI companions,
-              cognitive manipulation, false-memory formation, and the broader effects of AI on
-              human cognition, emotion, and behaviour.
-            </p>
-            <p>
-              <a href="https://patpat.world/" target="_blank" rel="noopener">Visit Dr Pataranutaporn’s website</a>
-            </p>
-
+            <p>Dr Pat Pataranutaporn is the founding director of the Cyborg Psychology research group and co-director of the MIT Media Lab’s Advancing Humans with AI research programme. His work brings together artificial intelligence, human–computer interaction, and psychology to investigate how human–AI systems can support—or diminish—learning, decision-making, critical thinking, creativity, and wellbeing.</p>
+            <p><a href="https://patpat.world/" target="_blank" rel="noopener">Visit Dr Pataranutaporn’s website</a></p>
             <h3>Keynote talk</h3>
             <p><strong>Title and abstract forthcoming</strong></p>
-            <p>
-              The keynote will connect Dr Pataranutaporn’s research on cyborg psychology and
-              human–AI interaction with the workshop’s central questions about persuasion,
-              agency, and the long-term psychological effects of conversational agents. The
-              final title and speaker-provided abstract will be posted here once available.
-            </p>
+            <p>The final title and speaker-provided abstract will be posted here once available.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="participation">
+    <section>
       <div class="container two-column">
         <div>
-          <h2>Participation</h2>
-          <p class="lead">
-            The workshop is intended for researchers at all career stages, from early-career
-            researchers to established scholars.
-          </p>
-          <p>
-            Participation does not require a paper submission. Prospective participants will be
-            invited to register and, as part of registration, share a brief question, challenge,
-            example, or methodological idea that they would like the workshop to address. These
-            contributions are prompts for collective reflection—not formal submissions—and will
-            not be peer reviewed or published as proceedings.
-          </p>
-          <div class="notice">
-            <strong>Help shape the conversation:</strong> visit the participation page to learn
-            what you can contribute before the workshop and how those ideas will inform the
-            roundtable sessions.
-          </div>
-          <p style="margin-top:1.25rem;">
-            <a class="button button-primary" href="participate.html">Participation details</a>
-          </p>
+          <h2>Join the conversation</h2>
+          <p class="lead">No paper submission is required. Participants will be invited to register and share a short question, challenge, example, or methodological idea before the workshop.</p>
+          <p>These reflections are prompts for collective discussion. They will not be peer reviewed, ranked, archived, or published as conference proceedings.</p>
+          <p><a class="button button-primary" href="join.html">Participation details</a></p>
         </div>
-
         <aside class="card">
-          <h3>Relevant fields include</h3>
-          <p>
-            Socially interactive agents, conversational AI, machine learning, AI safety,
-            responsible AI, cognitive psychology, neuroscience, sociology, human–computer
-            interaction, and business and marketing.
-          </p>
+          <h3>Who is it for?</h3>
+          <p>Researchers at all career stages working in socially interactive agents, conversational AI, machine learning, AI safety, responsible AI, psychology, neuroscience, sociology, HCI, business, marketing, and related fields.</p>
         </aside>
       </div>
     </section>
 
-    <section id="support">
+    <section>
       <div class="container">
         <h2>Institutional support</h2>
-        <p>
-          Add a short acknowledgement describing the role of ISM University of Management and
-          Economics and any other supporting institutions or sponsors.
-        </p>
-
-        <div class="logo-row">
-          <!-- Replace with:
-          <img src="assets/ism-logo.svg" alt="ISM University of Management and Economics">
-          -->
-          <div class="logo-placeholder">ISM University logo</div>
-        </div>
+        <p>Logo and acknowledgement text for ISM University of Management and Economics will be added here.</p>
+        <div class="logo-placeholder">ISM University logo forthcoming</div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <strong>Persuasion in Conversational Agents</strong><br>
-        An IVA 2026 workshop
-      </div>
-      <div>
-        Contact: Julija Vaitonytė —
-        <a href="mailto:J.Vaitonyte@tilburguniversity.edu">J.Vaitonyte@tilburguniversity.edu</a>
-      </div>
+      <div><strong>Persuasion in Conversational Agents</strong><br>An IVA 2026 workshop</div>
+      <div>Contact: <a href="mailto:J.Vaitonyte@tilburguniversity.edu">J.Vaitonyte@tilburguniversity.edu</a></div>
     </div>
   </footer>
 </body>
