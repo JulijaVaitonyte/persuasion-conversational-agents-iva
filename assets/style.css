@@ -22,8 +22,8 @@ body {
   line-height: 1.65;
 }
 img { max-width: 100%; }
-a { color: var(--accent); }
-a:hover { color: var(--accent-dark); }
+a { color: var(--accent-dark); }
+a:hover { color: var(--accent); }
 .container { width: min(var(--max-width), calc(100% - 2rem)); margin-inline: auto; }
 
 .site-header {
