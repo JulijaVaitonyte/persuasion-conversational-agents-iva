@@ -67,9 +67,9 @@ h3 { line-height: 1.3; }
 .questions, .prompt-list { padding-left: 1.25rem; }
 .questions li + li, .prompt-list li + li { margin-top: .75rem; }
 
-.keynote-grid { display: grid; grid-template-columns: 220px 1fr; gap: 2rem; align-items: start; }
+.keynote-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: start; }
 .speaker-photo { display: block; width: 100%; max-width: 320px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; border-radius: .9rem; }
-.photo-credit { margin-top: .55rem; color: var(--muted); font-size: .84rem; }
+.photo-credit { margin-top: .45rem; color: var(--muted); font-size: .78rem; }
 
 .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2rem; }
 .step { padding: 1.5rem; border-top: 4px solid var(--accent); background: var(--paper); box-shadow: 0 12px 35px rgba(24,33,43,.06); }
